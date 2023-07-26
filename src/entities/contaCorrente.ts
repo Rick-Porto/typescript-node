@@ -32,7 +32,20 @@ class ContaCorrente extends Conta {
     getLimite(): number {
         return this.limite;
     }
+
+    transferencia(contaDestino: ContaCorrente, valor: number): boolean {
+        if (this.calcularSaldo() >= valor) {
+            this.sacar(valor);
+            contaDestino.depositar(valor);
+            console.log(`Transferência de R$ ${valor} realizada com sucesso.`);
+            return true;
+        } else {
+            console.log('Saldo insuficiente na conta corrente para efetuar a transferência.');
+            return false;
+        }
+    }
 }
 
 export default ContaCorrente;
+
 
