@@ -1,5 +1,13 @@
 class Debito {
-    constructor(public valor: number, public data: Date) {}
+  constructor(public valor: number, public data: Date) {}
+
+  getValor(): number {
+      return this.valor;
   }
-  
-  export default Debito;
+
+  getData(): Date {
+      return this.data;
+  }
+}
+
+export default Debito;
