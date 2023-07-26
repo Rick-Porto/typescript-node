@@ -12,7 +12,7 @@ Você pode usar o Node Version Manager (nvm) para gerenciar as versões do Node.
 (https://github.com/coreybutler/nvm-windows/releases)
 
 2. Instale o módulo TypeScript
-npm install --save-dev typescript ts-node
+`npm install --save-dev typescript ts-node`
 
 3. Executar arquivo principal.ts
-npx ts-node src/application/main01.ts
+`npx ts-node src/application/main01.ts`
