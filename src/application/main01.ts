@@ -1,9 +1,5 @@
-import Endereco from '../entities/endereco';
-import Cliente from '../entities/cliente';
 import Funcionario from '../entities/funcionario';
 import Cargo from '../entities/cargo';
-import ContaCorrente from '../entities/contaCorrente';
-import ContaPoupanca from '../entities/contaPoupanca';
 
 // Criando os cargos
 const cargoGerente = new Cargo('Gerente');

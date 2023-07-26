@@ -3,12 +3,15 @@ import Endereco from './endereco';
 import IUsuario from './usuario';
 
 class Cliente extends Pessoa implements IUsuario {
+  private enderecos: Endereco[];
+
   constructor(cpf: string, nome: string, telefone: string, public vip: boolean) {
     super(cpf, nome, telefone);
+    this.enderecos = [];
   }
 
-  listarEnderecos(enderecos: Endereco[]): void {
-    enderecos.forEach((endereco, index) => {
+  listarEnderecos(): void {
+    this.enderecos.forEach((endereco, index) => {
       console.log(`Endereço ${index + 1}`);
       console.log(`CEP: ${endereco.cep}`);
       console.log(`Logradouro: ${endereco.logradouro}`);
@@ -20,6 +23,10 @@ class Cliente extends Pessoa implements IUsuario {
     });
   }
 
+  adicionarEndereco(endereco: Endereco): void {
+    this.enderecos.push(endereco);
+  }
+
   autenticar(): boolean {
     // Lógica de autenticação (retorna true ou false)
     return true;
@@ -27,3 +34,4 @@ class Cliente extends Pessoa implements IUsuario {
 }
 
 export default Cliente;
+
