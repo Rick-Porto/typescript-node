@@ -2,6 +2,7 @@ import Conta from './conta';
 import Debito from './debito';
 import Credito from './credito';
 import Pessoa from './pessoa';
+import ContaPoupanca from './contaPoupanca';
 
 class ContaCorrente extends Conta {
     private creditos: Credito[] = [];
@@ -33,17 +34,15 @@ class ContaCorrente extends Conta {
         return this.limite;
     }
 
-    transferencia(contaDestino: ContaCorrente, valor: number): boolean {
+    transferencia(contaDestino: ContaCorrente | ContaPoupanca, valor: number): void {
         if (this.calcularSaldo() >= valor) {
-            this.sacar(valor);
-            contaDestino.depositar(valor);
-            console.log(`Transferência de R$ ${valor} realizada com sucesso.`);
-            return true;
+          this.sacar(valor);
+          contaDestino.depositar(valor);
+          console.log(`Transferência de R$ ${valor} realizada com sucesso.`);
         } else {
-            console.log('Saldo insuficiente na conta corrente para efetuar a transferência.');
-            return false;
+          console.log('Saldo insuficiente na conta corrente para efetuar a transferência.');
         }
-    }
+      }
 }
 
 export default ContaCorrente;
